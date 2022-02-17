@@ -3,7 +3,7 @@ import Notes from "./Notes";
 function Home(props) {
   return (
     <div className="container">
-      <Notes showAlert={props.showAlert} />
+      <Notes mode={props.mode} showAlert={props.showAlert} />
     </div>
   );
 }

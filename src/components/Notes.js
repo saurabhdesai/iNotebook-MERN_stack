@@ -47,7 +47,7 @@ function Notes(props) {
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       >
-        Launch demo modal
+        Update Note
       </button>
 
       <div
@@ -57,11 +57,15 @@ function Notes(props) {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog">
-          <div className="modal-content">
+        <div className={`modal-dialog `}>
+          <div
+            className={`modal-content ${
+              props.mode === "dark" ? "bg-dark" : "bg-light"
+            }`}
+          >
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel">
-                Modal title
+                Update Note
               </h5>
               <button
                 type="button"

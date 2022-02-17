@@ -9,22 +9,6 @@ import {
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export default function Navbar(props) {
-  const [mode, setmode] = useState("light");
-
-  const togglemode = () => {
-    if (mode === "light") {
-      setmode("dark");
-      document.body.style.backgroundColor = "#042743";
-      document.body.style.color = "white";
-      props.showAlert("Dark mode enabled", "success");
-    } else {
-      setmode("light");
-      document.body.style.backgroundColor = "white";
-      document.body.style.color = "black";
-      props.showAlert("Light mode enabled", "success");
-    }
-  };
-
   let location = useLocation();
   const history = useHistory();
   const handleLogout = () => {
@@ -34,7 +18,9 @@ export default function Navbar(props) {
   };
   return (
     <div>
-      <nav className={`navbar navbar-expand-lg navbar-${mode} bg-${mode}`}>
+      <nav
+        className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
+      >
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             iNotebook
@@ -79,7 +65,7 @@ export default function Navbar(props) {
                 className="form-check-input"
                 type="checkbox"
                 id="flexSwitchCheckDefault"
-                onClick={togglemode}
+                onClick={props.togglemode}
               />
               <label
                 className="form-check-label"

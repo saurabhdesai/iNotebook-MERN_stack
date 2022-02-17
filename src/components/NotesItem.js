@@ -11,21 +11,21 @@ function NotesItem(props) {
       <div className="card my-2">
         <div className="card-body">
           <div className="d-flex align-items-center ">
-            <h5 className="card-title">{note.title}</h5>
+            <h5 className="card-title text-dark ">{note.title}</h5>
             <i
-              className="fa-solid fa-trash-can mx-2"
+              className="fa-solid fa-trash-can mx-2 text-dark"
               onClick={() => {
                 props.showAlert("Note deleted successfully", "success");
                 return deleteNote(note._id);
               }}
             ></i>
             <i
-              className="fa-regular fa-pen-to-square mx-2"
+              className="fa-regular fa-pen-to-square mx-2 text-dark"
               onClick={() => updatenote(note)}
             ></i>
           </div>
 
-          <p className="card-text">{note.description}</p>
+          <p className="card-text text-dark">{note.description}</p>
         </div>
       </div>
     </div>

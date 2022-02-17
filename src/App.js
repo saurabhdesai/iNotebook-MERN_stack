@@ -10,6 +10,22 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import { useState } from "react";
 function App() {
+  const [mode, setmode] = useState("light");
+
+  const togglemode = () => {
+    if (mode === "light") {
+      setmode("dark");
+      document.body.style.backgroundColor = "#042743";
+      document.body.style.color = "white";
+      showAlert("Dark mode enabled", "success");
+    } else {
+      setmode("light");
+      document.body.style.backgroundColor = "white";
+      document.body.style.color = "black";
+      showAlert("Light mode enabled", "success");
+    }
+  };
+
   const [alert, setalert] = useState(null);
   const showAlert = (msg, type) => {
     setalert({ message: msg, type: type });
@@ -21,11 +37,11 @@ function App() {
   return (
     <Notestate>
       <Router>
-        <Navbar showAlert={showAlert} />
+        <Navbar mode={mode} togglemode={togglemode} showAlert={showAlert} />
         <Alert alert={alert} />
         <Switch>
           <Route exact path="/">
-            <Home showAlert={showAlert} />
+            <Home mode={mode} showAlert={showAlert} />
           </Route>
           <Route exact path="/about">
             <About />
